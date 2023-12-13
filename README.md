@@ -2,7 +2,7 @@
 
 ## 概要
 
-このリポジトリは、[【ハンズオン】FlutterとRiverpodでgRPCの双方向ストリーミングを状態管理しよう with OpenAI API](https://qiita.com)のサンプルコードです。
+このリポジトリは、[【ハンズオン】FlutterとRiverpodでgRPCの双方向ストリーミングを状態管理しよう with OpenAI API](https://qiita.com/funobu/items/293e145a57af89cb2b49)のサンプルコードです。
 
 ## ハンズオンの内容
 
