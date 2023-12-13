@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package message;
+
+option go_package = "pkg/grpc";
+
+/**
+ * MessageServiceはAIとの会話を提供するサービスです。
+ */
+service MessageService {
+  /**
+    * RealtimeConversation
+    * リアルタイムにAIと会話をするためのリクエストとレスポンスを行うストリーミングRPCです。
+  * */
+  rpc RealtimeConversation(stream RealtimeConversationRequest) returns (stream RealtimeConversationResponse);
+}
+
+message RealtimeConversationRequest {
+  /**
+    * Message
+    * メッセージ(ユーザ)
+   */
+  string message = 1;
+}
+
+message RealtimeConversationResponse {
+  /**
+    * MessageID
+    * メッセージのID (1文字ずつではなく、1つのメッセージで一意)
+   */
+  string message_id = 1;
+  /**
+    * MessageChar
+    * メッセージ1文字(AI)
+   */
+  string message_char = 2;
+  /**
+    * IsDone
+    * 完了済みかどうか
+    * 1つのメッセージのストリームが完了したかどうかを表します。
+   */
+  bool is_done = 3;
+}
+
