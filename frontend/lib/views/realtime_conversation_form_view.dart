@@ -42,6 +42,15 @@ class RealtimeConversationForm extends HookConsumerWidget {
       }
     }
 
+    useEffect(() {
+      // 初期メッセージを送信
+      const req = MessageRequestStreamModel(
+        message: 'こんにちは',
+      );
+      streamCtrl.onListen = () => streamCtrl.add(req);
+      debugPrint('start');
+    }, []);
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [

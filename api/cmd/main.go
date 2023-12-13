@@ -1,8 +1,8 @@
 package main
 
 import (
-	"context"
 	"fmt"
+	"github.com/funobu/sample_app/cmd/app"
 	"github.com/funobu/sample_app/config"
 	"log"
 	"net"
@@ -11,7 +11,6 @@ import (
 )
 
 func main() {
-	ctx := context.Background()
 	// Load config
 	cnf := config.NewConfig()
 
@@ -21,7 +20,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	s, err := BuildApp(ctx, cnf)
+	s, err := app.BuildApp(cnf)
 	if err != nil {
 		log.Fatalf("failed to build app: %v", err)
 	}

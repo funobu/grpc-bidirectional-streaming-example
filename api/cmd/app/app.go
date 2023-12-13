@@ -1,7 +1,6 @@
-package main
+package app
 
 import (
-	"context"
 	"github.com/funobu/sample_app/config"
 	pb "github.com/funobu/sample_app/grpc"
 	"github.com/funobu/sample_app/internal/handlers"
@@ -10,7 +9,7 @@ import (
 	"google.golang.org/grpc/reflection"
 )
 
-func BuildApp(ctx context.Context, cnf *config.Config) (*grpc.Server, error) {
+func BuildApp(cnf *config.Config) (*grpc.Server, error) {
 	// Initialize services
 	aiService := services.NewAiService(cnf.OpenAI.APIKey)
 
